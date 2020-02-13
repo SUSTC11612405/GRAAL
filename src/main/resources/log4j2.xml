@@ -8,9 +8,9 @@
     <Loggers>
         <!--uncomment below logger to enable debug level logging, use it only for testing-->
 
-        <!--<logger name="com.orca" level="debug" additivity="false">-->
-            <!--<AppenderRef ref="console"/>-->
-        <!--</logger>-->
+        <logger name="com" level="debug" additivity="false">
+            <AppenderRef ref="console"/>
+        </logger>
         <Root level="info">
             <AppenderRef ref="console"/>
         </Root>

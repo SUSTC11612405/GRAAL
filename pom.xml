@@ -12,7 +12,7 @@
         <commons-io.version>2.5</commons-io.version>
         <immutables.version>2.4.3</immutables.version>
         <javaslang.version>2.1.0-alpha</javaslang.version>
-        <antlr4.version>4.6</antlr4.version>
+        <antlr4.version>4.8-1</antlr4.version>
         <libraries-support.version>1.0-SNAPSHOT</libraries-support.version>
         <orbitcounter.version>1.0-SNAPSHOT</orbitcounter.version>
         <junit.version>4.12</junit.version>
@@ -36,6 +36,12 @@
             <version>${immutables.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.immutables.javaslang</groupId>
+            <artifactId>javaslang-encodings</artifactId>
+            <version>0.3.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>io.javaslang</groupId>
             <artifactId>javaslang</artifactId>
             <version>${javaslang.version}</version>
@@ -46,14 +52,9 @@
             <version>${antlr4.version}</version>
         </dependency>
         <dependency>
-            <groupId>edu.rit.capstone</groupId>
-            <artifactId>libraries-support</artifactId>
-            <version>${libraries-support.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>edu.rit.capstone</groupId>
-            <artifactId>orbitcounter</artifactId>
-            <version>${orbitcounter.version}</version>
+            <groupId>org.jgrapht</groupId>
+            <artifactId>jgrapht-core</artifactId>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -69,6 +70,16 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-maven-plugin</artifactId>
+            <version>${antlr4.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.rit.capstone</groupId>
+            <artifactId>graphaligner</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
