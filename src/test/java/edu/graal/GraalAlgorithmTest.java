@@ -6,11 +6,29 @@ import edu.junitsupport.TestSetup;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.UUID;
+
 /**
  * Created by KanthKumar on 3/17/17.
  */
 public class GraalAlgorithmTest extends TestSetup{
     private GraalAlgorithm graalAlgorithm = new GraalAlgorithm();
+
+    @Test
+    public void GenerateFraph(){
+        String testcode1 = "class Odd {\n" +
+                "public static Video randomVideo(){\n" +
+                "String id= UUID.randomUUID().toString();\n" +
+                "String title=\"Video-\" + id;\n" +
+                "String url=\"http://coursera.org/some/video-\" + id;\n" +
+                "long duration=60 * (int)Math.rint(Math.random() * 60) * 1000;\n" +
+                "return new Video(title,url,duration);\n" +
+                "}" +
+                "}";
+        PDGGenerator pdgGenerator = ImmutablePDGGenerator.of();
+        PDGraph graph = pdgGenerator.createPDG(testcode1 , 0);
+        Assert.assertEquals("123", graph.toString());
+    }
 
     @Test
     public void AlgorithmTest1(){
