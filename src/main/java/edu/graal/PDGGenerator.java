@@ -59,6 +59,11 @@ public abstract class PDGGenerator {
         }
 
         constructSingleGraph(pdg);
+        lexer = null;
+        tokens = null;
+        parser = null;
+        listener = null;
+        walker = null;
         return pdg;
     }
 

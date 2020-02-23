@@ -6,7 +6,6 @@ import edu.graal.ImmutablePDGGenerator;
 import edu.graal.PDGGenerator;
 
 import edu.graal.graphs.PDGraph;
-import edu.graal.adapter.GraalAdapter;
 import edu.graal.graphs.types.PDGEdge;
 import edu.graal.graphs.types.PDGVertex;
 import javaslang.Tuple;
@@ -38,9 +37,15 @@ public class GenerateGraph {
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(writefile));
             String line;
             while ((line = myReader.readLine()) != null) {
+                if (line.length() > 10000) {
+                    myWriter.write("Method too long\n");
+                    myWriter.flush();
+                    continue;
+                }
                 try {
                     PDGraph pdGraph = pdgGenerator.createPDG(line, 0);
                     String json = convertToJson(pdGraph);
+                    pdGraph = null;
                     myWriter.write(json+"\n");
                     myWriter.flush();
                 } catch (NullPointerException e){
@@ -62,7 +67,7 @@ public class GenerateGraph {
 
     public static void main(String[] args) {
         mapper.registerModule(new JavaslangModule());
-        String path = "D:\\IdeaProjects\\GRAAL\\src\\main\\java\\edu\\";
+        String path = "C:\\Users\\workshop\\IdeaProjects\\GRAAL\\src\\main\\java\\edu\\";
         File folder = new File(path+"data");
         File[] listOfFiles = folder.listFiles();
         assert listOfFiles != null;
